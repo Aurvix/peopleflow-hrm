@@ -1,6 +1,6 @@
 # Peopleflow HRM
 
-An independent, local HRM SaaS prototype with SQLite persistence, tenant isolation, role-based access, workforce workflows and an MCP interface. This is the paused phase 8 snapshot, published for review; feature development has not resumed.
+An independent, local HRM SaaS prototype with SQLite persistence, tenant isolation, role-based access, workforce workflows and an MCP interface. This builds on the phase 8 review snapshot with a small task-workflow update. It remains a local development prototype.
 
 ## Run the local demo
 
@@ -37,6 +37,12 @@ Open http://127.0.0.1:4329. This is a local-only demo, not a hosted service.
 All seeded people, companies, email addresses and records are synthetic. These published credentials apply only to a newly created local demo database. Never reuse this password for real accounts or expose this demo to the Internet.
 
 Seeding happens only when the database has no users. Changing `SEED_PASSWORD` does not reset existing accounts. To start over, stop the server and choose a new, unused `DB_PATH` (for example `data/public-demo-2.sqlite`), then run the same setup. Keep the old database if you need its records. If `SEED_PASSWORD` is omitted with the default database path, a random password is saved locally in ignored `data/sandbox-access.txt`.
+
+## Task-workflow update (November 9, 2026)
+
+Tasks now include overdue and due-today filters, visible result counts, a clear-filters action, and clearer status/priority labels. Due dates continue to use UTC. Task updates preserve the current filters, guard repeated submissions, and avoid reopening dismissed dialogs when a delayed save completes.
+
+This update was published without final test or browser verification, as requested. The existing integration suite and added task-filter tests remain available for a later verification pass. No production-readiness claim is made.
 
 ## Existing capabilities
 
